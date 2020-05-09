@@ -26,9 +26,17 @@ requirements:
   host:
     - r-base
     - r-mass
+    - r-lme4
+    - r-nlme
+    - r-numderiv
+    - r-matrix
   run:
     - r-base
     - r-mass
+    - r-lme4
+    - r-nlme
+    - r-numderiv
+    - r-matrix
 
 test:
   commands:
