@@ -1,4 +1,4 @@
-{% set version = "2.0" %}
+{% set version = "2.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rsq_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rsq/rsq_{{ version }}.tar.gz
-  sha256: fcf353cd25b884134c9694f71ed960f8b8ac879651c68f91462149e8ce950aeb
+  sha256: c297f35168290693ecfd676bcacf3f0eb5bcdb9164b3fecbee3b84926e1037cc
 
 build:
   merge_build_host: true  # [win]
@@ -25,18 +25,18 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - r-deriv
     - r-mass
+    - r-matrix
     - r-lme4
     - r-nlme
-    - r-numderiv
-    - r-matrix
   run:
     - r-base
+    - r-deriv
     - r-mass
+    - r-matrix
     - r-lme4
     - r-nlme
-    - r-numderiv
-    - r-matrix
 
 test:
   commands:
@@ -45,10 +45,11 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=rsq
-  license: GPL-2
+  license: GPL-2.0-only
   summary: Calculate generalized R-squared, partial R-squared, and partial correlation coefficients for generalized linear models (including quasi models with well defined variance functions).
   license_family: GPL2
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
