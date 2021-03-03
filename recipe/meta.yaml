@@ -1,4 +1,4 @@
-{% set version = "2.1" %}
+{% set version = "2.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rsq_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rsq/rsq_{{ version }}.tar.gz
-  sha256: c297f35168290693ecfd676bcacf3f0eb5bcdb9164b3fecbee3b84926e1037cc
+  sha256: 00166e415aaecdd8453b85a36b7d5462fc58427a3a2e9445068ba8bd6b995fc2
 
 build:
   merge_build_host: true  # [win]
