@@ -1,11 +1,11 @@
-About r-rsq
-===========
+About r-rsq-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rsq-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=rsq
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rsq-feedstock/blob/main/LICENSE.txt)
 
 Summary: Calculate generalized R-squared, partial R-squared, and partial correlation coefficients for generalized linear models (including quasi models with well defined variance functions).
 
