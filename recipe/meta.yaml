@@ -1,4 +1,4 @@
-{% set version = "2.5" %}
+{% set version = "2.6" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rsq_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rsq/rsq_{{ version }}.tar.gz
-  sha256: 6e9c58ba22d8d53de5cf491da229a8532abcdecf98484b4359c741d8b346c2e4
+  sha256: f7e9da5b829f8226dbdb9b94c1afbb01403e9f02c56977570458876705cd6905
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -23,11 +23,13 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-deriv
     - r-mass
     - r-matrix
+    - r-deming
     - r-lme4
     - r-nlme
   run:
@@ -35,6 +37,7 @@ requirements:
     - r-deriv
     - r-mass
     - r-matrix
+    - r-deming
     - r-lme4
     - r-nlme
 
@@ -45,7 +48,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=rsq
-  license: GPL-2.0-only
+  license: GPL-2.0-or-later
   summary: Calculate generalized R-squared, partial R-squared, and partial correlation coefficients for generalized linear models (including quasi models with well defined variance functions).
   license_family: GPL2
   license_file:
@@ -55,18 +58,3 @@ extra:
   recipe-maintainers:
     - conda-forge/r
     - PertuyF
-
-# Package: rsq
-# Title: R-Squared and Related Measures
-# Version: 1.1
-# Date: 2018-09-24
-# Author: Dabao Zhang
-# Maintainer: Dabao Zhang <zhangdb@stat.purdue.edu>
-# Description: Calculate generalized R-squared, partial R-squared, and partial correlation coefficients for generalized linear models (including quasi models with well defined variance functions).
-# Imports: methods, stats, MASS
-# Suggests:
-# License: GPL-2
-# NeedsCompilation: no
-# Packaged: 2018-09-26 00:05:48 UTC; zhangdb
-# Repository: CRAN
-# Date/Publication: 2018-09-27 13:30:03 UTC
