@@ -23,11 +23,13 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-deriv
     - r-mass
     - r-matrix
+    - r-deming
     - r-lme4
     - r-nlme
   run:
@@ -35,6 +37,7 @@ requirements:
     - r-deriv
     - r-mass
     - r-matrix
+    - r-deming
     - r-lme4
     - r-nlme
 
@@ -45,7 +48,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=rsq
-  license: GPL-2.0-only
+  license: GPL-2.0-or-later
   summary: Calculate generalized R-squared, partial R-squared, and partial correlation coefficients for generalized linear models (including quasi models with well defined variance functions).
   license_family: GPL2
   license_file:
@@ -55,18 +58,3 @@ extra:
   recipe-maintainers:
     - conda-forge/r
     - PertuyF
-
-# Package: rsq
-# Title: R-Squared and Related Measures
-# Version: 1.1
-# Date: 2018-09-24
-# Author: Dabao Zhang
-# Maintainer: Dabao Zhang <zhangdb@stat.purdue.edu>
-# Description: Calculate generalized R-squared, partial R-squared, and partial correlation coefficients for generalized linear models (including quasi models with well defined variance functions).
-# Imports: methods, stats, MASS
-# Suggests:
-# License: GPL-2
-# NeedsCompilation: no
-# Packaged: 2018-09-26 00:05:48 UTC; zhangdb
-# Repository: CRAN
-# Date/Publication: 2018-09-27 13:30:03 UTC
