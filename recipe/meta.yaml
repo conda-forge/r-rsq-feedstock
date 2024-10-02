@@ -29,6 +29,7 @@ requirements:
     - r-matrix
     - r-deming
     - r-lme4
+    - r-mcr
     - r-nlme
   run:
     - r-base
@@ -37,6 +38,7 @@ requirements:
     - r-matrix
     - r-deming
     - r-lme4
+    - r-mcr
     - r-nlme
 
 test:
